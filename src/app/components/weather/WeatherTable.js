@@ -11,7 +11,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 
 const loadingStyle = {
     display: 'block',
-    margin: '0 auto'
+    margin: '50px auto'
 }
 
 class WeatherTable extends Component {
@@ -106,8 +106,8 @@ class WeatherTable extends Component {
                             {this.state.forecast.map((row, index) => (
                                 <TableRow key={index}>
                                     <TableRowColumn>{row.date}</TableRowColumn>
-                                    <TableRowColumn>{row.low}</TableRowColumn>
-                                    <TableRowColumn>{row.high}</TableRowColumn>
+                                    <TableRowColumn>{row.low}&#176;C</TableRowColumn>
+                                    <TableRowColumn>{row.high}&#176;C</TableRowColumn>
                                     <TableRowColumn>{row.text}</TableRowColumn>
                                 </TableRow>
                             ))}

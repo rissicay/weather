@@ -43,11 +43,6 @@
     "webpack-dev-server": "^2.2.0"
   },
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "compression": "^1.6.2",
-    "express": "^4.1.1",
-    "hbs": "^4.0.0",
-    "hbs-utils": "0.0.3",
     "material-ui": "^0.18.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
