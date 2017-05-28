@@ -4,26 +4,65 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import WeatherTable from './WeatherTable';
 
-const buttonStyle = {
-    margin: 10,
-}
-
 class WeatherSearch extends Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            code: '',
+            input: '',
+            error: ''
+        };
+    }
+
+    update(text) {
+        this.setState({ error: '' });
+        this.setState({ input: text });
+    }
+
+    submit(chosenRequest, index) {
+        this.setState({ input: chosenRequest });
+
+        if (states.includes(this.state.input)) {
+            this.setState({ code: this.state.input });
+        } else {
+            this.setState({ error: 'Not a state' });
+        }
+    }
+
     render() {
         return (
             <div>
-                <h1>Weather Forecasts</h1>
-                <h2>USA</h2>
-		<AutoComplete
-                    floatingLabelText="Enter State Code, eg: CA"
-                    filter={AutoComplete.caseInsensitiveFilter}
-                    dataSource={states}
-                />
-                <RaisedButton label="Go" primary={true} style={buttonStyle} />
+                <div style={{textAlign: 'center'}}>
+                    <h1>Weather Forecasts</h1>
+                    <h2>USA</h2>
+                </div>
+                <div>
+                    <AutoComplete
+                        floatingLabelText="Enter State Code, eg: CA"
+                        filter={AutoComplete.caseInsensitiveFilter}
+                        onNewRequest={this.submit.bind(this)}
+                        onUpdateInput={this.update.bind(this)}
+                        errorText={this.state.error}
+                        searchText={this.state.input}
+                        dataSource={states}
+                        fullWidth={true}
+                    />
+                </div>
 
-                <WeatherTable />
+                {this.renderTable()}
             </div>
         );
+    }
+
+    renderTable() {
+        if (this.state.code !== '') {
+            return (
+
+                <WeatherTable code={this.state.code}/>
+            );
+        }
     }
 }
 
