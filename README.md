@@ -1,3 +1,11 @@
+## How to run
+
+`npm install`
+`npm run watch`
+`http://localhost:3010/`
+
+## Discussion
+
 So I decide to try a new framework for this test. Material-UI. I've been really 
 wanting to try this one out for a long time now, but havent had the chance to.
 
@@ -31,6 +39,7 @@ tradition papa john style of scss with your components.
 Things still incomplete in this submission:
 - TEST FRAMEWORK AND TEST... this is really important, it'd just be easier to migrate
 over to a create-react-app application then rig this up
+- fetch and promises need a polyfil... so please use chrome. These two piece are simple to find.
 - Dockerfile for deployment on cluster
 - Environmental variable configuration inside webpack, this is important for other 
 environments then just development/
